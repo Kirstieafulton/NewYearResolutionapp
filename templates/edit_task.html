@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <form method="POST" action="{{ url_for('update_task', task_id=task.id) }}">
+        <div>
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task" value="{{ task.task }}">
+        </div>
+        <div>
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment">{{ task.comment }}</textarea>
+        </div>
+        <div>
+            <label for="completed">Completed:</label>
+            <input type="checkbox" id="completed" name="completed" {{ 'checked' if task.completed else '' }}>
+        </div>
+        <button type="submit">Update Task</button>
+
+        <script>
+            const progressBar = document.querySelector('.progress-bar');
+          
+            // Replace this with your logic to calculate progress
+            const progressValue = 75; 
+          
+            progressBar.style.width = progressValue + '%';
+            progressBar.setAttribute('aria-valuenow', progressValue);
+          </script>
+          
+    </form>
+    
+        
+    </form>
+</body>
+</html>
+
